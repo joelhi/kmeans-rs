@@ -1,15 +1,20 @@
-fn kmeans<T: DataPoint>(data_points: &[T], k: usize) -> Vec<usize> {
+
+pub fn kmeans<T: DataPoint>(data_points: &[T], k: usize) -> Vec<usize> {
     return Vec::new();
 }
 
 // Trait for being a clusterable data point
-trait DataPoint: Sized {
+pub trait DataPoint: Sized {
     fn calculate_centroid(data_points: &[Self]) -> Self;
 
     fn calculate_distance(&self, other: &Self) -> f64;
+
+    fn get_length()->i32;
+
+    fn create_from_array(data: &[f64]) -> Self;
 }
 
-struct Point3d {
+pub struct Point3d {
     x: f64,
     y: f64,
     z: f64,
@@ -29,4 +34,16 @@ impl DataPoint for Point3d {
         ((other.x - self.x).powi(2) + (other.y - self.y).powi(2) + (other.z - self.z).powi(2))
             .sqrt()
     }
+
+    fn get_length()->i32 { 3 }
+
+    fn create_from_array(data: &[f64]) -> Self {
+        if data.len() != 3 {
+            panic!("Point3d can only be made from a list of three numbers.");
+        }
+
+        Point3d { x: data[0], y: data[1], z: data[2] }
+
+    }
 }
+
