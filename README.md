@@ -3,4 +3,4 @@ Simple implementation of the kmeans clustering algorithm in rust. Mainly for the
 
 **Dependencies**
 
-rand [0.8.5]
+- rand [0.8.5]
