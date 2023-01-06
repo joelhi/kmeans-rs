@@ -18,14 +18,11 @@ The process applied to a picture of the gherkin would look like this for a set o
 *Original image*
 ![Original image](/resources/gherkin.png)
 
-**k = 11**
-![Image with 11 colours](/resources/clustered_k11.png)
+k=2            |  k=3
+:-------------------------:|:-------------------------:
+![Image with 2 colours](/resources/clustered_k2.png)  |  ![Image with 3 colours](/resources/clustered_k3.png)
 
-**k = 7**
-![Image with 7 colours](/resources/clustered_k7.png)
+k=7            |  k=11
+:-------------------------:|:-------------------------:
+![Image with 7 colours](/resources/clustered_k7.png)  |  ![Image with 11 colours](/resources/clustered_k11.png)
 
-**k = 3**
-![Image with 3 colours](/resources/clustered_k3.png)
-
-**k = 2**
-![Image with 2 colours](/resources/clustered_k2.png)
