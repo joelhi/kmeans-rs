@@ -6,6 +6,12 @@ pub struct Point3d {
     z: f64,
 }
 
+impl Point3d{
+    pub fn new(x: f64, y: f64, z:f64) -> Self {
+        Point3d { x: x, y: y, z: z} 
+    }
+}
+
 impl kmeans::DataPoint for Point3d {
     fn calculate_centroid(data_points: &[&Self]) -> Self {
         let n = data_points.len() as f64;

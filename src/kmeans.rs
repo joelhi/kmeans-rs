@@ -16,11 +16,12 @@ pub fn kmeans<T: DataPoint>(data_points: &[T], k: usize) -> Vec<usize> {
     let mut assignments: Vec<usize> = vec![0; len];
 
     let mut changed: bool = true;
-
+    let mut iter = 0;
     // iterate until stable
     while changed {
         changed = false;
-
+        iter = iter + 1;
+        let mut count = 0;
         // find closest centroid
         for (i, data_point) in data_points.iter().enumerate() {
             let mut min_dist = f64::MAX;
@@ -37,6 +38,7 @@ pub fn kmeans<T: DataPoint>(data_points: &[T], k: usize) -> Vec<usize> {
 
             if assignments[i] != min_index {
                 changed = true;
+                count = count + 1;
                 assignments[i] = min_index;
             }
         }
@@ -53,6 +55,8 @@ pub fn kmeans<T: DataPoint>(data_points: &[T], k: usize) -> Vec<usize> {
             let new_centroid = T::calculate_centroid(cluster.as_slice());
             centroids[i] = new_centroid;
         }
+
+        println!("Iteration: {}, changes: {}", iter, count);
     }
 
     // return assignments
