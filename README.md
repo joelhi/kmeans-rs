@@ -9,7 +9,7 @@ Mainly for the benefit of my own learning.
 
 **About**
 
-The code features a simple implementation of a naive kmean clustering algorithm applied to do some processing of images. 
+The code features a simple implementation of a naive kmeans algorithm applied to processing of images. 
 
 Running the main function will cluster the colours of a provided image of the png format and save a version with only k-colours.
 
