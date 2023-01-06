@@ -1,6 +1,6 @@
 use rand::{thread_rng, Rng};
 
-pub fn kmeans<T: DataPoint>(data_points: &[T], k: usize) -> Vec<usize> {
+pub fn kmeans<T: DataPoint>(data_points: &[T], k: usize) -> (Vec<usize>, Vec<T>) {
     let mut rng = thread_rng();
 
     // assign random centroids
@@ -60,7 +60,7 @@ pub fn kmeans<T: DataPoint>(data_points: &[T], k: usize) -> Vec<usize> {
     }
 
     // return assignments
-    assignments
+    (assignments, centroids)
 }
 
 // Trait for being a clusterable data point
@@ -75,5 +75,3 @@ pub trait DataPoint: Sized {
 
     fn clone(&self) -> Self;
 }
-
-
