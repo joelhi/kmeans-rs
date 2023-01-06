@@ -1,9 +1,10 @@
 mod kmeans;
+mod point3;
 
 use rand::Rng;
 
 fn main() {
-    let data = generate_random_data::<kmeans::Point3d>(100);
+    let data = generate_random_data::<point3::Point3d>(100);
 
     let _assignments = kmeans::kmeans(&data, 5);
 
