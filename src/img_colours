@@ -1,0 +1,19 @@
+mod kmeans;
+mod data_points;
+
+use data_points::*;
+use image::{DynamicImage, Rgb};
+
+fn cluster_image_colours(path: &str, k: usize){
+
+    let image = image::open(path).unwrap();
+
+}
+
+fn get_rgb_values(image: &DynamicImage) -> Vec<Rgb<u8>> {
+    let mut pixels = vec![];
+    for pixel in image.pixels() {
+        pixels.push(pixel.2);
+    }
+    pixels
+}
