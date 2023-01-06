@@ -13,7 +13,9 @@ The code features a simple implementation of a naive kmean clustering algorithm 
 
 Running the main function will cluster the colours of a provided image of the png format and save a version with only k-colours.
 
-Example:
+**Example**
+
+The process applied to a picture of the gherkin would look like this for a set of values for *k*:
 
 *Original image*
 ![Original image](/resources/gherkin.png)
