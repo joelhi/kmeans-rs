@@ -16,11 +16,16 @@ Running the main function will cluster the colours of a provided image of the pn
 The process applied to a picture of the gherkin would look like this for a set of values for *k*:
 
 *Original image*
-![Original image](/resources/gherkin.png)
 
-k=2            |  k=3
+
+
+Original            |  k=2
 :-------------------------:|:-------------------------:
-![Image with 2 colours](/resources/clustered_k2.png)  |  ![Image with 3 colours](/resources/clustered_k3.png)
+![Original image](/resources/gherkin.png)  |  ![Image with 2 colours](/resources/clustered_k2.png)
+
+k=3            |  k=5
+:-------------------------:|:-------------------------:
+![Image with 3 colours](/resources/clustered_k3.png)  |  ![Image with 5 colours](/resources/clustered_k5.png)
 
 k=7            |  k=11
 :-------------------------:|:-------------------------:
