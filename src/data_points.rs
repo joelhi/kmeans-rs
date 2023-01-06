@@ -1,9 +1,15 @@
 use crate::kmeans;
 
 pub struct Point3d {
-    x: f64,
-    y: f64,
-    z: f64,
+    pub x: f64,
+    pub y: f64,
+    pub z: f64,
+}
+
+impl Point3d {
+    pub fn new(x: f64, y: f64, z: f64) -> Self {
+        Point3d { x: x, y: y, z: z }
+    }
 }
 
 impl kmeans::DataPoint for Point3d {
@@ -47,10 +53,10 @@ impl kmeans::DataPoint for Point3d {
 }
 
 pub struct Point4d {
-    x: f64,
-    y: f64,
-    z: f64,
-    w: f64,
+    pub x: f64,
+    pub y: f64,
+    pub z: f64,
+    pub w: f64,
 }
 
 impl kmeans::DataPoint for Point4d {
@@ -61,12 +67,20 @@ impl kmeans::DataPoint for Point4d {
         let z = data_points.iter().map(|p| p.z).sum::<f64>() / n;
         let w = data_points.iter().map(|p| p.w).sum::<f64>() / n;
 
-        Point4d { x: x, y: y, z: z, w: w }
+        Point4d {
+            x: x,
+            y: y,
+            z: z,
+            w: w,
+        }
     }
 
     fn calculate_distance(&self, other: &Self) -> f64 {
-        ((other.x - self.x).powi(2) + (other.y - self.y).powi(2) + (other.z - self.z).powi(2) + (other.w - self.w).powi(2))
-            .sqrt()
+        ((other.x - self.x).powi(2)
+            + (other.y - self.y).powi(2)
+            + (other.z - self.z).powi(2)
+            + (other.w - self.w).powi(2))
+        .sqrt()
     }
 
     fn get_length() -> i32 {

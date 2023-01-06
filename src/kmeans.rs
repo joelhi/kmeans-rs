@@ -1,6 +1,6 @@
 use rand::{thread_rng, Rng};
 
-pub fn kmeans<T: DataPoint>(data_points: &[T], k: usize) -> Vec<usize> {
+pub fn kmeans<T: DataPoint>(data_points: &[T], k: usize) -> (Vec<usize>, Vec<T>) {
     let mut rng = thread_rng();
 
     // assign random centroids
@@ -16,11 +16,12 @@ pub fn kmeans<T: DataPoint>(data_points: &[T], k: usize) -> Vec<usize> {
     let mut assignments: Vec<usize> = vec![0; len];
 
     let mut changed: bool = true;
-
+    let mut iter = 0;
     // iterate until stable
     while changed {
         changed = false;
-
+        iter = iter + 1;
+        let mut count = 0;
         // find closest centroid
         for (i, data_point) in data_points.iter().enumerate() {
             let mut min_dist = f64::MAX;
@@ -37,6 +38,7 @@ pub fn kmeans<T: DataPoint>(data_points: &[T], k: usize) -> Vec<usize> {
 
             if assignments[i] != min_index {
                 changed = true;
+                count = count + 1;
                 assignments[i] = min_index;
             }
         }
@@ -53,10 +55,12 @@ pub fn kmeans<T: DataPoint>(data_points: &[T], k: usize) -> Vec<usize> {
             let new_centroid = T::calculate_centroid(cluster.as_slice());
             centroids[i] = new_centroid;
         }
+
+        println!("Iteration: {}, changes: {}", iter, count);
     }
 
     // return assignments
-    assignments
+    (assignments, centroids)
 }
 
 // Trait for being a clusterable data point
@@ -71,5 +75,3 @@ pub trait DataPoint: Sized {
 
     fn clone(&self) -> Self;
 }
-
-
