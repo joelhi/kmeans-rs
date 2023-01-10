@@ -21,7 +21,7 @@ The process applied to a picture of the gherkin would look like this for a set o
 
 Original            |  k=2
 :-------------------------:|:-------------------------:
-![Original image](/resources/gherkin.png)  |  ![Image with 2 colours](/resources/clustered_k2.png)
+![Original image](/resources/test.png)  |  ![Image with 2 colours](/resources/clustered_k2.png)
 
 k=3            |  k=5
 :-------------------------:|:-------------------------:

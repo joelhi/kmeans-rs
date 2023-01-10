@@ -3,7 +3,7 @@ mod img_colours;
 mod kmeans;
 
 fn main() {
-    let path = "resources/gherkin.png";
+    let path = "resources/test.png";
 
-    img_colours::cluster_image_colours(path, 11);
+    img_colours::cluster_image_colours(path, 2);
 }
