@@ -16,15 +16,22 @@ pub fn cluster_image_colours(path: &str, k: usize) {
 
         let rgb = get_rgb_values(&image);
 
+        println!("Image loaded contains {} data points." ,rgb.len());
+
         let (assignments, centroids) = kmeans::kmeans(&rgb, k);
 
         let clustered: Vec<Point3d> = assignments.iter().map(|i| centroids[*i].clone()).collect();
 
         let clustered_image = create_image(image.width(), image.height(), &clustered);
 
+        let path = format!("{}{}{}", "resources/clustered_k", k, ".png");
+
         clustered_image
-            .save(format!("{}{}{}", "resources/clustered_k", k, ".png"))
+            .save(&path)
             .expect("failed to save file.");
+        
+        println!("Image saved as {}", path);
+        
     } else {
         println!("{}", result.unwrap_err());
     }
