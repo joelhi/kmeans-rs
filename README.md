@@ -13,7 +13,7 @@ Running the main function will cluster the colours of a provided image of the pn
 
 **Example**
 
-The process applied to a picture of the gherkin would look like this for a set of values for *k*:
+The process applied to a picture would look like this for a set of values for *k*:
 
 *Original image*
 
